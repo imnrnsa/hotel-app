@@ -1,0 +1,102 @@
+[
+  {
+    "id": "ROOM-001",
+    "name": "Deluxe Room",
+    "category": "Room",
+    "price": 450000,
+    "stock": 12,
+    "status": "Available",
+    "description": "Kamar deluxe dengan fasilitas lengkap dan pemandangan kota.",
+    "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&h=400&fit=crop"
+  },
+  {
+    "id": "ROOM-002",
+    "name": "Superior Room",
+    "category": "Room",
+    "price": 350000,
+    "stock": 8,
+    "status": "Available",
+    "description": "Kamar superior nyaman dengan desain modern minimalis.",
+    "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&h=400&fit=crop"
+  },
+  {
+    "id": "ROOM-003",
+    "name": "Suite Room",
+    "category": "Suite",
+    "price": 850000,
+    "stock": 5,
+    "status": "Available",
+    "description": "Suite room mewah dengan ruang tamu pribadi dan bathtub.",
+    "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=500&h=400&fit=crop"
+  },
+  {
+    "id": "ROOM-004",
+    "name": "Family Room",
+    "category": "Family",
+    "price": 650000,
+    "stock": 4,
+    "status": "Available",
+    "description": "Kamar keluarga luas cocok untuk 4 orang.",
+    "image": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=500&h=400&fit=crop"
+  },
+  {
+    "id": "ROOM-005",
+    "name": "Single Room",
+    "category": "Room",
+    "price": 250000,
+    "stock": 10,
+    "status": "Available",
+    "description": "Kamar single praktis untuk satu orang tamu.",
+    "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=500&h=400&fit=crop"
+  },
+  {
+    "id": "ROOM-006",
+    "name": "Twin Room",
+    "category": "Room",
+    "price": 400000,
+    "stock": 6,
+    "status": "Available",
+    "description": "Kamar twin dengan dua tempat tidur nyaman.",
+    "image": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=500&h=400&fit=crop"
+  },
+  {
+    "id": "ROOM-007",
+    "name": "Presidential Suite",
+    "category": "Luxury",
+    "price": 2500000,
+    "stock": 2,
+    "status": "Available",
+    "description": "Suite eksklusif dengan fasilitas premium dan ruang VIP.",
+    "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=500&h=400&fit=crop"
+  },
+  {
+    "id": "ROOM-008",
+    "name": "Ocean View Room",
+    "category": "Luxury",
+    "price": 1200000,
+    "stock": 3,
+    "status": "Low Stock",
+    "description": "Kamar dengan pemandangan laut yang indah dan balkon pribadi.",
+    "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=500&h=400&fit=crop"
+  },
+  {
+    "id": "ROOM-009",
+    "name": "Garden View Room",
+    "category": "Room",
+    "price": 500000,
+    "stock": 1,
+    "status": "Low Stock",
+    "description": "Kamar dengan suasana taman hijau yang menenangkan.",
+    "image": "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=500&h=400&fit=crop"
+  },
+  {
+    "id": "ROOM-010",
+    "name": "Standard Room",
+    "category": "Room",
+    "price": 300000,
+    "stock": 0,
+    "status": "Out of Stock",
+    "description": "Kamar standar ekonomis dengan fasilitas dasar lengkap.",
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&h=400&fit=crop"
+  }
+]

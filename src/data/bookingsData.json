@@ -1,0 +1,112 @@
+[
+  {
+    "bookingId": "BOOK001",
+    "name": "Andi Saputra",
+    "email": "andi.saputra@gmail.com",
+    "phone": "081234567801",
+    "city": "Jakarta",
+    "roomType": "Deluxe",
+    "checkIn": "2026-05-01",
+    "checkOut": "2026-05-03",
+    "status": "Checked In"
+  },
+  {
+    "bookingId": "BOOK002",
+    "name": "Siti Rahma",
+    "email": "siti.rahma@gmail.com",
+    "phone": "081234567802",
+    "city": "Bandung",
+    "roomType": "Superior",
+    "checkIn": "2026-05-02",
+    "checkOut": "2026-05-05",
+    "status": "Booked"
+  },
+  {
+    "bookingId": "BOOK003",
+    "name": "Budi Hartono",
+    "email": "budi.h@gmail.com",
+    "phone": "081234567803",
+    "city": "Surabaya",
+    "roomType": "Suite",
+    "checkIn": "2026-05-03",
+    "checkOut": "2026-05-06",
+    "status": "Checked Out"
+  },
+  {
+    "bookingId": "BOOK004",
+    "name": "Rina Putri",
+    "email": "rina.putri@gmail.com",
+    "phone": "081234567804",
+    "city": "Medan",
+    "roomType": "Standard",
+    "checkIn": "2026-05-04",
+    "checkOut": "2026-05-07",
+    "status": "Booked"
+  },
+  {
+    "bookingId": "BOOK005",
+    "name": "Dewi Lestari",
+    "email": "dewi.lestari@gmail.com",
+    "phone": "081234567805",
+    "city": "Yogyakarta",
+    "roomType": "Deluxe",
+    "checkIn": "2026-05-05",
+    "checkOut": "2026-05-08",
+    "status": "Checked In"
+  },
+  {
+    "bookingId": "BOOK006",
+    "name": "Ahmad Fauzi",
+    "email": "ahmad.fauzi@gmail.com",
+    "phone": "081234567806",
+    "city": "Makassar",
+    "roomType": "Superior",
+    "checkIn": "2026-05-06",
+    "checkOut": "2026-05-10",
+    "status": "Booked"
+  },
+  {
+    "bookingId": "BOOK007",
+    "name": "Nabila Sari",
+    "email": "nabila.sari@gmail.com",
+    "phone": "081234567807",
+    "city": "Semarang",
+    "roomType": "Suite",
+    "checkIn": "2026-05-07",
+    "checkOut": "2026-05-11",
+    "status": "Checked Out"
+  },
+  {
+    "bookingId": "BOOK008",
+    "name": "Fajar Nugroho",
+    "email": "fajar.n@gmail.com",
+    "phone": "081234567808",
+    "city": "Palembang",
+    "roomType": "Standard",
+    "checkIn": "2026-05-08",
+    "checkOut": "2026-05-10",
+    "status": "Checked In"
+  },
+  {
+    "bookingId": "BOOK009",
+    "name": "Lina Marlina",
+    "email": "lina.m@gmail.com",
+    "phone": "081234567809",
+    "city": "Bogor",
+    "roomType": "Deluxe",
+    "checkIn": "2026-05-09",
+    "checkOut": "2026-05-12",
+    "status": "Booked"
+  },
+  {
+    "bookingId": "BOOK010",
+    "name": "Rudi Kurniawan",
+    "email": "rudi.k@gmail.com",
+    "phone": "081234567810",
+    "city": "Depok",
+    "roomType": "Superior",
+    "checkIn": "2026-05-10",
+    "checkOut": "2026-05-14",
+    "status": "Checked Out"
+  }
+]

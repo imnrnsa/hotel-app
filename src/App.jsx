@@ -1,44 +1,55 @@
-import React, { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
-import MainLayout from "./layouts/MainLayout";
-import AuthLayout from "./layouts/AuthLayout";
-import ProtectedRoute from "./components/ProtectedRoute";
-
-const Home = lazy(() => import("./pages/Home"));
-const Login = lazy(() => import("./pages/Login"));
+import { Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+import React from "react";
+import Loading from "./components/Loading";
 
 function App() {
+
+  const Dashboard = React.lazy(() => import("./pages/Dashboard"));
+  const Bookings = React.lazy(() => import("./pages/Bookings"));
+  const Customers = React.lazy(() => import("./pages/Customers"));
+  const Products = React.lazy(() => import("./pages/Products"));
+  const ProductDetail = React.lazy(() => import("./pages/ProductDetail"));
+  const CustomerDetail = React.lazy(() => import("./pages/CustomerDetail"));
+  const NotFound = React.lazy(() => import("./pages/NotFound"));
+  const Login = React.lazy(() => import("./pages/auth/Login"));
+  const Register = React.lazy(() => import("./pages/auth/Register"));
+  const Forgot = React.lazy(() => import("./pages/auth/Forgot"));
+  const MainLayout = React.lazy(() => import("./layouts/MainLayout"));
+  const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"));
+
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Suspense fallback={<h2>Loading...</h2>}>
-          <Routes>
+    <Suspense fallback={<Loading />}>
+      <Routes>
 
-            <Route
-              path="/"
-              element={
-                <ProtectedRoute>
-                  <MainLayout>
-                    <Home />
-                  </MainLayout>
-                </ProtectedRoute>
-              }
-            />
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Dashboard />} />
 
-            <Route
-              path="/login"
-              element={
-                <AuthLayout>
-                  <Login />
-                </AuthLayout>
-              }
-            />
+          <Route path="/bookings" element={<Bookings />} />
 
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </AuthProvider>
+          <Route path="/customers" element={<Customers />} />
+
+          <Route path="/products" element={<Products />} />
+
+          <Route path="/products/:id" element={<ProductDetail />} />
+
+          <Route path="/customers/:id" element={<CustomerDetail />} />
+
+          <Route path="*" element={<NotFound />} />
+        </Route>
+
+        <Route element={<AuthLayout />}>
+
+          <Route path="/login" element={<Login />} />
+
+          <Route path="/register" element={<Register />} />
+
+          <Route path="/forgot" element={<Forgot />} />
+
+        </Route>
+
+      </Routes>
+    </Suspense>
   );
 }
 
