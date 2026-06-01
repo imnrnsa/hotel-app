@@ -1,5 +1,5 @@
 import { MdSpaceDashboard } from "react-icons/md";
-import { FaUsers, FaPlus, FaClipboardList, FaExclamationTriangle, FaRegFileAlt } from "react-icons/fa";
+import { FaUsers, FaPlus, FaClipboardList, FaExclamationTriangle, FaLayerGroup, FaCubes } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -24,7 +24,8 @@ export default function Sidebar() {
         { name: "Bookings", icon: FaClipboardList, color: "text-[#7d5131]", gradient: "from-[#d4b48e] to-[#ad7d58]", path: "/bookings" },
         { name: "Customers", icon: FaUsers, color: "text-[#78513b]", gradient: "from-[#cfa67d] to-[#a77c56]", path: "/customers" },
         { name: "Rooms", icon: FaPlus, color: "text-[#7e5543]", gradient: "from-[#d3b69e] to-[#ae8263]", path: "/products" },
-        { name: "Component", icon: FaRegFileAlt, color: "text-[#8c5e3e]", gradient: "from-[#d7af86] to-[#b88a60]", path: "/component" },
+        { name: "Fitur XYZ", icon: FaLayerGroup, color: "text-[#8c5e3e]", gradient: "from-[#d7af86] to-[#b88a60]", path: "/fitur-xyz" },
+        { name: "Component", icon: FaCubes, color: "text-[#8c5e3e]", gradient: "from-[#d7af86] to-[#b88a60]", path: "/component" },
         { name: "Error 400", icon: FaExclamationTriangle, color: "text-[#8c5e3e]", gradient: "from-[#d7af86] to-[#b88a60]", path: "/error-400" },
         { name: "Error 401", icon: FaExclamationTriangle, color: "text-[#8c5e3e]", gradient: "from-[#d7af86] to-[#b88a60]", path: "/error-401" },
         { name: "Error 403", icon: FaExclamationTriangle, color: "text-[#8c5e3e]", gradient: "from-[#d7af86] to-[#b88a60]", path: "/error-403" }
