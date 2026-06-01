@@ -14,7 +14,7 @@ const PageHeader = ({ title, breadcrumb, children }) => {
         </div>
         <div>{children}</div>
       </div>
-      <hr className="border-gray-200" />
+      <hr className="border-[#ead8b6]" />
     </div>
   );
 };

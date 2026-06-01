@@ -7,14 +7,14 @@ import productsData from "../data/productsData.json";
 // Komponen Reusable untuk Stat Card
 const StatCard = ({ title, value, icon: Icon, color, delay, trend, isCurrency }) => {
     const colors = {
-        green: "from-emerald-400 to-teal-600 shadow-emerald-200",
-        blue: "from-blue-400 to-indigo-600 shadow-blue-200",
-        red: "from-rose-400 to-red-600 shadow-red-200",
-        yellow: "from-amber-400 to-orange-500 shadow-amber-200",
+        green: "from-[#c7a27d] to-[#9f7a61] shadow-[#ddc8b4]",
+        blue: "from-[#b5886f] to-[#8f5a3e] shadow-[#d3b2a0]",
+        red: "from-[#a66a4b] to-[#8c4f38] shadow-[#d3b0a0]",
+        yellow: "from-[#d1a26e] to-[#a6693c] shadow-[#ead0b0]",
     };
 
     return (
-        <div className={`group relative bg-white border border-gray-100 rounded-3xl shadow-sm p-6 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-slideInUp ${delay}`}>
+        <div className={`group relative bg-[#fbf1dc] border border-[#f2e3c8] rounded-3xl shadow-sm p-6 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-slideInUp ${delay}`}>
             
             <div className={`absolute -right-4 -top-4 w-24 h-24 bg-linear-to-br ${colors[color]} opacity-5 rounded-full blur-2xl group-hover:opacity-20 transition-opacity duration-500`}></div>
 
@@ -39,15 +39,15 @@ const StatCard = ({ title, value, icon: Icon, color, delay, trend, isCurrency })
 
                 <div className={`flex items-center space-x-1 text-xs font-bold px-2 py-1 rounded-full ${
                     trend > 0
-                        ? 'bg-green-50 text-green-600'
-                        : 'bg-red-50 text-red-600'
+                        ? 'bg-[#f6e7d2] text-[#8b5e3e]'
+                        : 'bg-[#f5e0d0] text-[#8c5e3e]'
                 }`}>
                     {trend > 0 ? <FaArrowUp /> : <FaArrowDown />}
                     <span>{Math.abs(trend)}%</span>
                 </div>
             </div>
 
-            <div className="mt-6 w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
+            <div className="mt-6 w-full bg-[#f4e7d1] h-1.5 rounded-full overflow-hidden">
                 <div
                     className={`h-full bg-linear-to-r ${colors[color]} transition-all duration-1000 ease-out`}
                     style={{ width: '70%' }}
@@ -112,7 +112,7 @@ export default function Dashboard() {
     }, []);
 
     return (
-        <div className="min-h-screen bg-[#f8fafc] p-4 md:p-8 animate-fadeIn">
+        <div className="min-h-screen bg-[#faf0d8] p-4 md:p-8 animate-fadeIn">
 
             <PageHeader
                 title="Hotel Overview"
@@ -169,11 +169,42 @@ export default function Dashboard() {
 
             <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-                <div className="lg:col-span-2 bg-white p-8 rounded-3xl shadow-sm border border-gray-100 h-64 flex items-center justify-center text-gray-400 italic">
-                    [ Grafik Booking Mingguan ]
+                <div className="lg:col-span-2 bg-[#f6eadb] p-8 rounded-3xl shadow-sm border border-[#e6cdb5]">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-6">Weekly Booking Chart</h3>
+                    
+                    <div className="flex items-end justify-around h-64 gap-2">
+                        {[
+                            { day: 'Mon', bookings: 45, maxHeight: 200 },
+                            { day: 'Tue', bookings: 62, maxHeight: 200 },
+                            { day: 'Wed', bookings: 55, maxHeight: 200 },
+                            { day: 'Thu', bookings: 78, maxHeight: 200 },
+                            { day: 'Fri', bookings: 89, maxHeight: 200 },
+                            { day: 'Sat', bookings: 92, maxHeight: 200 },
+                            { day: 'Sun', bookings: 68, maxHeight: 200 }
+                        ].map((bar) => (
+                            <div key={bar.day} className="flex flex-col items-center gap-2 flex-1">
+                                <div className="relative w-full h-48 flex items-end justify-center">
+                                    <div 
+                                        className="w-full bg-gradient-to-t from-[#b8926f] to-[#d4b89e] rounded-t-lg hover:from-[#a67c55] hover:to-[#c2976f] transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
+                                        style={{ height: `${(bar.bookings / 92) * 100}%` }}
+                                    >
+                                        <div className="flex items-center justify-center h-full">
+                                            <span className="text-white font-bold text-sm">{bar.bookings}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p className="text-sm font-medium text-gray-700">{bar.day}</p>
+                            </div>
+                        ))}
+                    </div>
+                    
+                    <div className="mt-6 flex justify-between text-xs text-gray-600">
+                        <span>Total: 489 bookings</span>
+                        <span>Avg: 70 bookings/day</span>
+                    </div>
                 </div>
 
-                <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                <div className="bg-[#f6eadb] p-6 rounded-3xl shadow-sm border border-[#e6cdb5]">
 
                     <h3 className="text-lg font-semibold text-gray-800 mb-4">
                         Recent Rooms
@@ -185,7 +216,7 @@ export default function Dashboard() {
 
                             <div
                                 key={product.id}
-                                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                                className="flex items-center justify-between p-3 bg-[#fbf3ea] rounded-lg"
                             >
 
                                 <div>
@@ -206,10 +237,10 @@ export default function Dashboard() {
 
                                     <span className={`text-xs px-2 py-1 rounded-full ${
                                         product.status === 'Available'
-                                            ? 'bg-green-100 text-green-800'
+                                            ? 'bg-[#f3e0d0] text-[#8c5e3e]'
                                             : product.status === 'Low Stock'
-                                            ? 'bg-yellow-100 text-yellow-800'
-                                            : 'bg-red-100 text-red-800'
+                                            ? 'bg-[#efd0b4] text-[#8c5e3e]'
+                                            : 'bg-[#e6c4ac] text-[#7c4c31]'
                                     }`}>
                                         {product.status}
                                     </span>

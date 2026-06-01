@@ -11,6 +11,7 @@ function App() {
   const Products = React.lazy(() => import("./pages/Products"));
   const ProductDetail = React.lazy(() => import("./pages/ProductDetail"));
   const CustomerDetail = React.lazy(() => import("./pages/CustomerDetail"));
+  const ComponentPage = React.lazy(() => import("./pages/Component"));
   const NotFound = React.lazy(() => import("./pages/NotFound"));
   const Login = React.lazy(() => import("./pages/auth/Login"));
   const Register = React.lazy(() => import("./pages/auth/Register"));
@@ -34,6 +35,8 @@ function App() {
           <Route path="/products/:id" element={<ProductDetail />} />
 
           <Route path="/customers/:id" element={<CustomerDetail />} />
+
+          <Route path="/component" element={<ComponentPage />} />
 
           <Route path="*" element={<NotFound />} />
         </Route>
