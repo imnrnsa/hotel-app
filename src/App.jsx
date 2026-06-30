@@ -25,8 +25,6 @@ function App() {
   const CustomerDetail = React.lazy(() => import("./pages/CustomerDetail"));
   const ComponentPage = React.lazy(() => import("./pages/Component"));
   const FiturXyz = React.lazy(() => import("./pages/FiturXyz"));
-  const GuestPage = React.lazy(() => import("./pages/Guest"));
-  const MemberPage = React.lazy(() => import("./pages/Member"));
   const NotFound = React.lazy(() => import("./pages/NotFound"));
   const Login = React.lazy(() => import("./pages/auth/Login"));
   const Register = React.lazy(() => import("./pages/auth/Register"));
@@ -60,10 +58,6 @@ function App() {
           <Route path="/component" element={<ComponentPage />} />
 
           <Route path="/fitur-xyz" element={<FiturXyz />} />
-
-          <Route path="/guest-profile" element={<GuestPage />} />
-
-          <Route path="/member" element={<MemberPage />} />
 
           <Route path="/error" element={<NotFound />} />
         </Route>

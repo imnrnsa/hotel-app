@@ -6,28 +6,28 @@ const roomTypes = [
     id: 1,
     name: "Standard Room",
     price: "Rp 450.000",
-    image: "bg-gradient-to-br from-[#e8d5c4] to-[#d4b89e]",
+    image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=600&q=80",
     features: ["2 Tempat Tidur", "Kamar Mandi Pribadi", "AC", "WiFi Gratis"],
   },
   {
     id: 2,
     name: "Deluxe Room",
     price: "Rp 750.000",
-    image: "bg-gradient-to-br from-[#d4b89e] to-[#c4a078]",
+    image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=80",
     features: ["King Size Bed", "Balkon", "Mini Bar", "Shower Mewah"],
   },
   {
     id: 3,
     name: "Suite Room",
     price: "Rp 1.200.000",
-    image: "bg-gradient-to-br from-[#c4a078] to-[#a67c52]",
+    image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=600&q=80",
     features: ["Living Area", "2 Kamar Tidur", "Jacuzzi", "Butler Service"],
   },
   {
     id: 4,
     name: "Presidential Suite",
     price: "Rp 2.500.000",
-    image: "bg-gradient-to-br from-[#a67c52] to-[#8c5e3e]",
+    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80",
     features: ["Panoramic View", "Private Pool", "Chef Kitchen", "Concierge 24/7"],
   },
 ];
@@ -40,42 +40,82 @@ const amenities = [
 ];
 
 export default function GuestLanding() {
+  // Fungsi untuk smooth scroll ke section target
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen scroll-smooth bg-[#fffdfa]">
+      {/* Header / Navbar */}
+      <header className="sticky top-0 z-50 border-b border-[#ead6b8]/50 bg-white/90 backdrop-blur-md px-4 py-4 shadow-sm">
+        <div className="mx-auto flex max-w-6xl items-center justify-between">
+          <div className="cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <h1 className="text-xl font-black tracking-wide text-[#1a1410]">GRAND ZURI</h1>
+          </div>
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#5f5f5f]">
+            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-[#8d6b45] transition">Beranda</button>
+            <button onClick={() => scrollToSection('fasilitas')} className="hover:text-[#8d6b45] transition">Fasilitas</button>
+            <button onClick={() => scrollToSection('kamar')} className="hover:text-[#8d6b45] transition">Pilihan Kamar</button>
+            <button onClick={() => scrollToSection('promo')} className="hover:text-[#8d6b45] transition">Promo</button>
+            <button onClick={() => scrollToSection('member')} className="hover:text-[#8d6b45] transition">Member</button>
+          </nav>
+          <div>
+            <Link to="/login" className="rounded-lg bg-[#8d6b45] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#7a5d39]">
+              Login
+            </Link>
+          </div>
+        </div>
+      </header>
+
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#fff7ed] via-[#fef3e2] to-[#f8e8d0] px-4 py-20 md:py-32">
+      <section className="bg-gradient-to-br from-[#fff7ed] via-[#fef3e2] to-[#f8e8d0] px-4 py-16 md:py-24">
         <div className="mx-auto max-w-6xl">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#fff4e6] px-4 py-2">
                 <span className="text-lg">⭐</span>
                 <span className="text-sm font-semibold text-[#8d6b45]">Kemewahan di Setiap Sudut</span>
               </div>
-              <h1 className="mt-6 text-5xl font-black leading-tight text-[#1a1410] md:text-6xl">
+              <h1 className="mt-4 text-4xl font-black leading-tight text-[#1a1410] md:text-6xl">
                 Pengalaman Menginap yang Tak Terlupakan
               </h1>
               <p className="mt-6 text-lg leading-8 text-[#5f5f5f]">
                 Hotel Grand Zuri menawarkan kemewahan kelas dunia dengan pelayanan terbaik. Nikmati kenyamanan premium dan pengalaman menginap yang berkesan bersama kami.
               </p>
-              <div className="mt-8 flex gap-4">
+              <div className="mt-8 flex flex-wrap gap-4">
                 <Link
                   to="/login"
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#8d6b45] px-6 py-4 font-semibold text-white transition hover:bg-[#7a5d39]"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#8d6b45] px-6 py-4 font-semibold text-white transition hover:bg-[#7a5d39] shadow-md hover:shadow-lg"
                 >
                   Pesan Sekarang <FaArrowRight />
                 </Link>
-                <button className="rounded-lg border-2 border-[#d9c5a3] bg-white px-6 py-4 font-semibold text-[#7a5d39] transition hover:bg-[#f8f0e0]">
+                <button 
+                  onClick={() => scrollToSection('kamar')}
+                  className="rounded-lg border-2 border-[#d9c5a3] bg-white px-6 py-4 font-semibold text-[#7a5d39] transition hover:bg-[#f8f0e0]"
+                >
                   Lihat Kamar
                 </button>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-[#d4b89e] to-[#a67c52] rounded-3xl h-96 shadow-2xl" />
+            {/* Main Hotel Image Hero */}
+            <div className="relative h-[450px] overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-[1.01]">
+              <img 
+                src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1000&q=80" 
+                alt="Hotel Grand Zuri Exterior" 
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Amenities Section */}
-      <section className="px-4 py-20 md:py-32">
+      <section id="fasilitas" className="px-4 py-20 md:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#8d6b45]">Fasilitas Unggulan</p>
@@ -83,7 +123,7 @@ export default function GuestLanding() {
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {amenities.map((amenity) => (
-              <div key={amenity.name} className="rounded-2xl border border-[#ead6b8] bg-[#fffaf3] p-6 transition hover:shadow-lg">
+              <div key={amenity.name} className="rounded-2xl border border-[#ead6b8] bg-[#fffaf3] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lg">
                 <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#f5e8d6] text-2xl text-[#8d6b45]">
                   <amenity.icon />
                 </div>
@@ -96,7 +136,7 @@ export default function GuestLanding() {
       </section>
 
       {/* Room Types Section */}
-      <section id="menu" className="bg-[#f8f1de] px-4 py-20 md:py-32">
+      <section id="kamar" className="bg-[#f8f1de] px-4 py-20 md:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#8d6b45]">Pilihan Kamar</p>
@@ -106,9 +146,16 @@ export default function GuestLanding() {
             {roomTypes.map((room) => (
               <div
                 key={room.id}
-                className="overflow-hidden rounded-2xl border border-[#ead6b8] bg-white shadow-sm transition hover:-translate-y-2 hover:shadow-xl"
+                className="group overflow-hidden rounded-2xl border border-[#ead6b8] bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
-                <div className={`h-48 ${room.image}`} />
+                {/* Room Image */}
+                <div className="h-48 overflow-hidden relative">
+                  <img 
+                    src={room.image} 
+                    alt={room.name} 
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                  />
+                </div>
                 <div className="p-5">
                   <h3 className="font-bold text-[#1a1410]">{room.name}</h3>
                   <p className="mt-2 text-2xl font-black text-[#8d6b45]">{room.price}</p>
@@ -119,9 +166,9 @@ export default function GuestLanding() {
                       </li>
                     ))}
                   </ul>
-                  <button className="mt-5 w-full rounded-lg bg-[#ff9f43] py-2 font-semibold text-white transition hover:bg-[#ff8800]">
+                  <Link to="/login" className="block text-center mt-5 w-full rounded-lg bg-[#ff9f43] py-2.5 font-semibold text-white transition hover:bg-[#ff8800]">
                     Pesan Kamar
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -130,14 +177,14 @@ export default function GuestLanding() {
       </section>
 
       {/* Promo Section */}
-      <section id="promo" className="px-4 py-20 md:py-32">
+      <section id="promo" className="px-4 py-20 md:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="mb-8 text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#8d6b45]">Penawaran Spesial</p>
             <h2 className="mt-3 text-4xl font-black text-[#1a1410]">Promo Terbatas untuk Anda</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-[#ead6b8] bg-gradient-to-br from-[#fff7ed] to-[#f8e8d0] p-8">
+            <div className="rounded-2xl border border-[#ead6b8] bg-gradient-to-br from-[#fff7ed] to-[#f8e8d0] p-8 transition hover:shadow-md">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#ff9f43] text-2xl text-white">
                 🎁
               </div>
@@ -145,7 +192,7 @@ export default function GuestLanding() {
               <p className="mt-2 text-[#5f5f5f]">Dapatkan diskon 20% untuk pemesanan 2 bulan sebelumnya.</p>
               <p className="mt-4 text-lg font-black text-[#8d6b45]">Berlaku hingga 31 Juli 2026</p>
             </div>
-            <div className="rounded-2xl border border-[#ead6b8] bg-gradient-to-br from-[#fff7ed] to-[#f8e8d0] p-8">
+            <div className="rounded-2xl border border-[#ead6b8] bg-gradient-to-br from-[#fff7ed] to-[#f8e8d0] p-8 transition hover:shadow-md">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#c99c5e] text-2xl text-white">
                 👑
               </div>
@@ -158,10 +205,10 @@ export default function GuestLanding() {
       </section>
 
       {/* Member Section */}
-      <section id="member" className="bg-[#f8f1de] px-4 py-20 md:py-32">
+      <section id="member" className="bg-[#f8f1de] px-4 py-20 md:py-28">
         <div className="mx-auto max-w-6xl">
-          <div className="rounded-3xl bg-gradient-to-br from-[#fff7ed] to-[#f5e0cb] p-8 md:p-16">
-            <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+          <div className="rounded-3xl bg-gradient-to-br from-[#fff7ed] to-[#f5e0cb] p-8 md:p-16 shadow-inner">
+            <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
               <div>
                 <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#8d6b45] text-2xl text-white">
                   <FaUsers />
@@ -191,7 +238,15 @@ export default function GuestLanding() {
                   Daftar Member Sekarang <FaArrowRight />
                 </Link>
               </div>
-              <div className="bg-gradient-to-br from-[#d4b89e] to-[#a67c52] rounded-2xl h-80 shadow-lg" />
+              {/* Member Section Image */}
+              <div className="relative h-80 overflow-hidden rounded-2xl shadow-xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" 
+                  alt="Grand Zuri Luxury Lounge" 
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+              </div>
             </div>
           </div>
         </div>
@@ -218,23 +273,11 @@ export default function GuestLanding() {
             </div>
             <div>
               <p className="font-bold text-[#1a1410]">Link Cepat</p>
-              <ul className="mt-2 space-y-1 text-sm text-[#5f5f5f]">
-                <li>
-                  <Link to="/" className="hover:text-[#8d6b45]">
-                    Beranda
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/login" className="hover:text-[#8d6b45]">
-                    Pesan Kamar
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/#member" className="hover:text-[#8d6b45]">
-                    Program Member
-                  </Link>
-                </li>
-              </ul>
+              <div className="mt-2 flex flex-col gap-1 text-sm text-[#5f5f5f]">
+                <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-left hover:text-[#8d6b45] transition">Beranda</button>
+                <button onClick={() => scrollToSection('kamar')} className="text-left hover:text-[#8d6b45] transition">Pesan Kamar</button>
+                <button onClick={() => scrollToSection('member')} className="text-left hover:text-[#8d6b45] transition">Program Member</button>
+              </div>
             </div>
           </div>
           <div className="mt-8 border-t border-[#ead6b8] pt-8 text-center text-sm text-[#5f5f5f]">

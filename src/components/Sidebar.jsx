@@ -1,10 +1,11 @@
 import { MdSpaceDashboard } from "react-icons/md";
-import { FaUsers, FaPlus, FaClipboardList, FaExclamationTriangle, FaLayerGroup, FaCubes, FaUserFriends, FaGift } from "react-icons/fa";
+import { FaUsers, FaPlus, FaClipboardList, FaExclamationTriangle, FaLayerGroup, FaCubes, FaUserFriends, FaGift, FaSignOutAlt } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Sidebar() {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
@@ -17,13 +18,13 @@ export default function Sidebar() {
     { name: "Customers", icon: FaUsers, path: "/customers" },
     { name: "Rooms", icon: FaPlus, path: "/products" },
     { name: "Fitur XYZ", icon: FaLayerGroup, path: "/fitur-xyz" },
-    { name: "Guest Profile", icon: FaUserFriends, path: "/guest-profile" },
-    { name: "Member", icon: FaGift, path: "/member" },
     { name: "Component", icon: FaCubes, path: "/component" },
-    { name: "Error 400", icon: FaExclamationTriangle, path: "/error-400" },
-    { name: "Error 401", icon: FaExclamationTriangle, path: "/error-401" },
-    { name: "Error 403", icon: FaExclamationTriangle, path: "/error-403" },
   ];
+
+  const handleLogout = () => {
+    // Jalankan pembersihan session/token di sini jika ada (misal: localStorage.clear())
+    navigate("/");
+  };
 
   const linkClass = ({ isActive }) =>
     `flex items-center gap-3 rounded-[1.75rem] px-4 py-4 text-sm transition-all duration-300 ${
@@ -55,6 +56,14 @@ export default function Sidebar() {
             <span>{item.name}</span>
           </NavLink>
         ))}
+        {/* Tombol Logout Tambahan */}
+        <button 
+          onClick={handleLogout} 
+          className="flex w-full items-center gap-3 rounded-[1.75rem] px-4 py-4 text-sm text-red-600 transition-all duration-300 hover:bg-red-50 hover:text-red-700 font-medium"
+        >
+          <FaSignOutAlt className="text-lg" />
+          <span>Logout</span>
+        </button>
       </nav>
 
       <div className="mt-auto rounded-[2rem] bg-[#fffdf7] p-5 shadow-sm ring-1 ring-black/5 border border-[#f3e6d1]">
