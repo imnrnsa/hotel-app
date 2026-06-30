@@ -1,4 +1,4 @@
-import { FaBell, FaSearch, FaUserCircle } from "react-icons/fa";
+import { FaBell, FaSearch } from "react-icons/fa";
 import { FcAreaChart } from "react-icons/fc";
 import { SlSettings } from "react-icons/sl";
 import { useState } from "react";
@@ -7,96 +7,63 @@ export default function Header() {
     const [isSearchFocused, setIsSearchFocused] = useState(false);
 
     return (
-        <div className="flex justify-between items-center p-5 bg-[#f8eed1] shadow-xl rounded-2xl mb-6 animate-slideInDown border border-[#f1e4c2]">
-            {/* Search Bar - Lebih menarik */}
-            <div className="relative w-full max-w-lg group">
-                <div className={`absolute inset-0 bg-gradient-to-r from-[#b58355] to-[#8c5a36] rounded-xl opacity-0 transition-opacity duration-500 ${isSearchFocused ? 'opacity-20' : 'group-hover:opacity-10'}`}></div>
-                <input
-                    className="border-2 border-gray-100 p-3.5 pr-12 bg-gray-50 w-full max-w-lg rounded-xl outline-none transition-all duration-300 focus:border-[#8c6244] focus:shadow-lg focus:bg-white relative"
-                    type="text"
-                    placeholder="Search rooms, bookings, customers..."
-                    onFocus={() => setIsSearchFocused(true)}
-                    onBlur={() => setIsSearchFocused(false)}
-                />
-                <FaSearch className={`absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer transition-all duration-300 ${isSearchFocused ? 'text-[#8c5e3e] scale-110' : 'text-gray-400 group-hover:text-[#8c5e3e] group-hover:scale-110'}`} />
-                
-                {/* Search Shortcut Hint */}
-                <div className="absolute right-14 top-1/2 transform -translate-y-1/2 text-xs text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded hidden md:block">
-                    ⌘K
+        <div className="flex flex-col gap-5 p-5 rounded-[2rem] bg-white border border-[#f2e0c8] shadow-[0_25px_80px_rgba(154,128,90,0.12)] mb-6">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                <div className="relative w-full max-w-xl group">
+                    <div className={`absolute inset-0 rounded-[1.5rem] bg-gradient-to-r from-[#d7b580] to-[#c4995a] opacity-0 transition-opacity duration-500 ${isSearchFocused ? 'opacity-15' : 'group-hover:opacity-10'}`} />
+                    <input
+                        type="text"
+                        placeholder="Search rooms, bookings, customers..."
+                        onFocus={() => setIsSearchFocused(true)}
+                        onBlur={() => setIsSearchFocused(false)}
+                        className="w-full rounded-[1.5rem] border border-[#ede1c6] bg-[#fffaf4] px-5 py-4 pr-14 text-sm text-[#4c432f] shadow-sm outline-none transition duration-300 focus:border-[#d0b281] focus:bg-white focus:shadow-md"
+                    />
+                    <FaSearch className={`absolute right-5 top-1/2 -translate-y-1/2 text-lg transition duration-300 ${isSearchFocused ? 'text-[#9f7b51]' : 'text-[#b6a17b]'}`} />
+                </div>
+
+                <div className="flex items-center gap-3 flex-wrap justify-end">
+                    <button className="inline-flex items-center justify-center rounded-2xl border border-[#efe1c8] bg-[#f9f2e4] px-4 py-3 text-sm font-semibold text-[#705b3a] shadow-sm transition hover:bg-[#f0e1c7] hover:text-[#604e34]">
+                        <span className="mr-2">+</span> Add Room
+                    </button>
                 </div>
             </div>
 
-            {/* Icon & Profile Section */}
-            <div className="flex items-center space-x-3">
-                {/* Notification Icon dengan badge animasi */}
-                <div className="group relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#d8b28a] to-[#b07c5b] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-md"></div>
-                    <div className="relative p-3 bg-gradient-to-br from-[#f3e1cb] to-[#dcc2a4] rounded-2xl text-[#8c5e3e] cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg group-hover:from-[#b07c5b] group-hover:to-[#8c5e3e] group-hover:text-white">
-                        <FaBell className="transition-all duration-300 group-hover:animate-pulse" />
-                        <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-red-600 rounded-full px-1.5 py-0.5 text-[10px] text-white font-bold animate-pulse shadow-lg">
-                            50
-                        </span>
-                    </div>
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-gray-800 text-white text-xs px-2 py-0.5 rounded whitespace-nowrap">
-                        Notifications
-                    </div>
-                </div>
-
-                {/* Chart Icon dengan efek rotasi */}
-                <div className="group relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#e2c19e] to-[#c2976f] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-md"></div>
-                    <div className="relative p-3 bg-gradient-to-br from-[#f7e6d4] to-[#e8d0b3] rounded-2xl cursor-pointer transition-all duration-300 hover:scale-110 hover:rotate-12 hover:shadow-lg group-hover:from-[#c2976f] group-hover:to-[#a87552]">
-                        <FcAreaChart className="text-xl transition-all duration-300 group-hover:text-white" />
-                    </div>
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-gray-800 text-white text-xs px-2 py-0.5 rounded whitespace-nowrap">
-                        Analytics
-                    </div>
-                </div>
-
-                {/* Settings Icon dengan efek rotasi negatif */}
-                <div className="group relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#d6a47c] to-[#b67956] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-md"></div>
-                    <div className="relative p-3 bg-gradient-to-br from-[#f5e1ce] to-[#e0c2a5] rounded-2xl text-[#8c5e3e] cursor-pointer transition-all duration-300 hover:scale-110 hover:-rotate-12 hover:shadow-lg group-hover:from-[#b67956] group-hover:to-[#8c5e3e] group-hover:text-white">
-                        <SlSettings className="transition-all duration-300 group-hover:animate-spin" />
-                    </div>
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-gray-800 text-white text-xs px-2 py-0.5 rounded whitespace-nowrap">
-                        Settings
-                    </div>
-                </div>
-
-                {/* Profile Section dengan efek lebih mewah */}
-                <div className="group relative">
-                    <div className="flex items-center space-x-3 border-l pl-4 border-gray-200 cursor-pointer">
-                        <div className="text-right">
-                            <p className="text-xs text-gray-400">Welcome back,</p>
-                            <span className="text-sm text-gray-700 font-medium group-hover:text-[#8c5e3e] transition-colors duration-300">
-                                Nur Annisa<b className="text-[#8c5e3e]"></b>
-                            </span>
-                            <p className="text-[10px] text-gray-400">Administrator</p>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <div className="group relative overflow-hidden rounded-[1.75rem] border border-[#f0e5d4] bg-[#fffaf2] p-4 shadow-sm transition hover:shadow-lg">
+                    <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-[#f8d9b1] to-[#d7b37a] opacity-40 blur-3xl" />
+                    <div className="relative flex items-center justify-between gap-4">
+                        <div>
+                            <p className="text-sm uppercase tracking-[0.25em] text-[#a68456]">Daily Bookings</p>
+                            <h3 className="mt-2 text-2xl font-semibold text-[#3f3527]">52</h3>
                         </div>
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#d8b494] to-[#c19772] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-md"></div>
-                            <img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIe3VuOA6oMIqC9QIR6mkvfG9stciQXtOZ4A&s"
-                                className="w-12 h-12 rounded-full border-3 border-[#a97a52] cursor-pointer transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-2xl relative"
-                            />
-                            <div className="absolute bottom-0 right-0 w-3 h-3 bg-[#a97a52] rounded-full border-2 border-white animate-pulse"></div>
+                        <div className="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-[#f2e5cd] text-[#8c6f44] shadow-inner">
+                            <FaBell className="text-lg" />
                         </div>
                     </div>
-                    
-                    {/* Dropdown Menu (Hidden by default, muncul saat hover) */}
-                    <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 z-50">
-                        <div className="p-2">
-                            <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-[#f7e3cc] hover:text-[#8c5e3e] rounded-lg transition-colors">
-                                👤 My Profile
-                            </button>
-                            <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-[#f7e3cc] hover:text-[#8c5e3e] rounded-lg transition-colors">
-                                ⚙️ Account Settings
-                            </button>
-                            <hr className="my-1" />
-                            <button className="w-full text-left px-4 py-2 text-sm text-[#8c5e3e] hover:bg-[#f7e3cc] rounded-lg transition-colors">
-                                🚪 Logout
-                            </button>
+                </div>
+
+                <div className="group relative overflow-hidden rounded-[1.75rem] border border-[#f0e5d4] bg-[#fffaf2] p-4 shadow-sm transition hover:shadow-lg">
+                    <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-[#d7c4a3] to-[#b08a5a] opacity-40 blur-3xl" />
+                    <div className="relative flex items-center justify-between gap-4">
+                        <div>
+                            <p className="text-sm uppercase tracking-[0.25em] text-[#a68456]">Revenue</p>
+                            <h3 className="mt-2 text-2xl font-semibold text-[#3f3527]">Rp 128.4M</h3>
+                        </div>
+                        <div className="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-[#f2e5cd] text-[#8c6f44] shadow-inner">
+                            <FcAreaChart className="text-xl" />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="group relative overflow-hidden rounded-[1.75rem] border border-[#f0e5d4] bg-[#fffaf2] p-4 shadow-sm transition hover:shadow-lg">
+                    <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-[#e9d4b1] to-[#be9a67] opacity-40 blur-3xl" />
+                    <div className="relative flex items-center justify-between gap-4">
+                        <div>
+                            <p className="text-sm uppercase tracking-[0.25em] text-[#a68456]">Occupancy</p>
+                            <h3 className="mt-2 text-2xl font-semibold text-[#3f3527]">89%</h3>
+                        </div>
+                        <div className="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-[#f2e5cd] text-[#8c6f44] shadow-inner">
+                            <SlSettings className="text-xl" />
                         </div>
                     </div>
                 </div>
