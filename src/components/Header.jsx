@@ -1,72 +1,72 @@
 import { FaBell, FaSearch } from "react-icons/fa";
-import { FcAreaChart } from "react-icons/fc";
-import { SlSettings } from "react-icons/sl";
+import { GoGraph } from "react-icons/go";
+import { IoSettingsOutline } from "react-icons/io5";
 import { useState } from "react";
 
 export default function Header() {
     const [isSearchFocused, setIsSearchFocused] = useState(false);
 
     return (
-        <div className="flex flex-col gap-5 p-5 rounded-[2rem] bg-white border border-[#f2e0c8] shadow-[0_25px_80px_rgba(154,128,90,0.12)] mb-6">
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-                <div className="relative w-full max-w-xl group">
-                    <div className={`absolute inset-0 rounded-[1.5rem] bg-gradient-to-r from-[#d7b580] to-[#c4995a] opacity-0 transition-opacity duration-500 ${isSearchFocused ? 'opacity-15' : 'group-hover:opacity-10'}`} />
-                    <input
-                        type="text"
-                        placeholder="Search rooms, bookings, customers..."
-                        onFocus={() => setIsSearchFocused(true)}
-                        onBlur={() => setIsSearchFocused(false)}
-                        className="w-full rounded-[1.5rem] border border-[#ede1c6] bg-[#fffaf4] px-5 py-4 pr-14 text-sm text-[#4c432f] shadow-sm outline-none transition duration-300 focus:border-[#d0b281] focus:bg-white focus:shadow-md"
-                    />
-                    <FaSearch className={`absolute right-5 top-1/2 -translate-y-1/2 text-lg transition duration-300 ${isSearchFocused ? 'text-[#9f7b51]' : 'text-[#b6a17b]'}`} />
-                </div>
-
-                <div className="flex items-center gap-3 flex-wrap justify-end">
-                    <button className="inline-flex items-center justify-center rounded-2xl border border-[#efe1c8] bg-[#f9f2e4] px-4 py-3 text-sm font-semibold text-[#705b3a] shadow-sm transition hover:bg-[#f0e1c7] hover:text-[#604e34]">
-                        <span className="mr-2">+</span> Add Room
-                    </button>
-                </div>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between p-4 bg-white rounded-2xl border border-[#efe1c8]/60 shadow-[0_8px_30px_rgb(154,128,90,0.04)] mb-6">
+              {/* --- BAGIAN KIRI: SEARCH INPUT FIELD --- */}
+            <div className="relative w-full max-w-md group">
+                <input
+                    type="text"
+                    placeholder="Search here..."
+                    onFocus={() => setIsSearchFocused(true)}
+                    onBlur={() => setIsSearchFocused(false)}
+                    className="w-full rounded-xl border border-[#ede1c6] bg-[#fffaf4] px-4 py-2.5 pl-11 pr-24 text-xs text-[#4c432f] outline-none transition duration-300 focus:border-[#c2a373] focus:bg-white focus:ring-1 focus:ring-[#c2a373]"
+                />
+                <FaSearch className={`absolute left-4 top-1/2 -translate-y-1/2 text-sm transition-colors duration-300 ${isSearchFocused ? 'text-[#a68456]' : 'text-[#b6a17b]'}`} />
+                
+                {/* Tombol Cari Internal Eksklusif */}
+                <button className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-[#8c5638] hover:bg-[#734327] text-white text-[11px] font-medium px-4 py-1.5 rounded-lg transition-colors duration-200">
+                    Cari
+                </button>
             </div>
 
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-                <div className="group relative overflow-hidden rounded-[1.75rem] border border-[#f0e5d4] bg-[#fffaf2] p-4 shadow-sm transition hover:shadow-lg">
-                    <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-[#f8d9b1] to-[#d7b37a] opacity-40 blur-3xl" />
-                    <div className="relative flex items-center justify-between gap-4">
-                        <div>
-                            <p className="text-sm uppercase tracking-[0.25em] text-[#a68456]">Daily Bookings</p>
-                            <h3 className="mt-2 text-2xl font-semibold text-[#3f3527]">52</h3>
-                        </div>
-                        <div className="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-[#f2e5cd] text-[#8c6f44] shadow-inner">
-                            <FaBell className="text-lg" />
-                        </div>
+            {/* --- BAGIAN KANAN: UTILITY BUTTONS & USER PROFILE --- */}
+            <div className="flex items-center justify-end gap-4 flex-wrap">
+                
+                {/* Kelompok Tombol Menu Aksi */}
+                <div className="flex items-center gap-2">
+                    
+                    {/* 1. Tombol Notifikasi (Dengan Badge Angka) */}
+                    <button className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-[#fffaf4] border border-[#f0e2cc] text-[#8c5638] transition hover:bg-[#fcefdc]">
+                        <FaBell className="text-sm" />
+                        <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#c2784f] text-[9px] font-bold text-white ring-2 ring-white">
+                            3
+                        </span>
+                    </button>
+
+                    {/* 2. Tombol Analitik / Grafik */}
+                    <button className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#fffaf4] border border-[#f0e2cc] text-[#8c5638] transition hover:bg-[#fcefdc]">
+                        <GoGraph className="text-sm" />
+                    </button>
+
+                    {/* 3. Tombol Pengaturan */}
+                    <button className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#fffaf4] border border-[#f0e2cc] text-[#8c5638] transition hover:bg-[#fcefdc]">
+                        <IoSettingsOutline className="text-sm stroke-[2]" />
+                    </button>
+                    
+                </div>
+
+                {/* Pembatas Vertikal Ringan */}
+                <div className="hidden xs:block h-6 w-[1px] bg-[#eadecc]" />
+
+                {/* Informasi Identitas Pengguna */}
+                <div className="flex items-center gap-2.5 bg-[#fffaf4] border border-[#f0e2cc] py-1 pl-3 pr-1.5 rounded-xl">
+                    <div className="text-left hidden sm:block">
+                        <p className="text-[11px] font-bold text-[#4c432f] leading-tight">Annisa</p>
+                        <p className="text-[9px] text-[#9c8a70] leading-none">Annisa@gmail.com</p>
+                    </div>
+                    
+                    {/* Avatar Berinisial Bulat */}
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#c2784f] text-white text-xs font-bold shadow-inner">
+                        AU
                     </div>
                 </div>
 
-                <div className="group relative overflow-hidden rounded-[1.75rem] border border-[#f0e5d4] bg-[#fffaf2] p-4 shadow-sm transition hover:shadow-lg">
-                    <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-[#d7c4a3] to-[#b08a5a] opacity-40 blur-3xl" />
-                    <div className="relative flex items-center justify-between gap-4">
-                        <div>
-                            <p className="text-sm uppercase tracking-[0.25em] text-[#a68456]">Revenue</p>
-                            <h3 className="mt-2 text-2xl font-semibold text-[#3f3527]">Rp 128.4M</h3>
-                        </div>
-                        <div className="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-[#f2e5cd] text-[#8c6f44] shadow-inner">
-                            <FcAreaChart className="text-xl" />
-                        </div>
-                    </div>
-                </div>
-
-                <div className="group relative overflow-hidden rounded-[1.75rem] border border-[#f0e5d4] bg-[#fffaf2] p-4 shadow-sm transition hover:shadow-lg">
-                    <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-[#e9d4b1] to-[#be9a67] opacity-40 blur-3xl" />
-                    <div className="relative flex items-center justify-between gap-4">
-                        <div>
-                            <p className="text-sm uppercase tracking-[0.25em] text-[#a68456]">Occupancy</p>
-                            <h3 className="mt-2 text-2xl font-semibold text-[#3f3527]">89%</h3>
-                        </div>
-                        <div className="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-[#f2e5cd] text-[#8c6f44] shadow-inner">
-                            <SlSettings className="text-xl" />
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     );

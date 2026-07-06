@@ -25,6 +25,7 @@ function App() {
   const CustomerDetail = React.lazy(() => import("./pages/CustomerDetail"));
   const ComponentPage = React.lazy(() => import("./pages/Component"));
   const FiturXyz = React.lazy(() => import("./pages/FiturXyz"));
+  const MemberLanding = React.lazy(() => import("./pages/MemberLanding"));
   const NotFound = React.lazy(() => import("./pages/NotFound"));
   const Login = React.lazy(() => import("./pages/auth/Login"));
   const Register = React.lazy(() => import("./pages/auth/Register"));
@@ -39,6 +40,7 @@ function App() {
         {/* Public Routes */}
         <Route element={<PublicLayout />}>
           <Route path="/" element={<GuestLanding />} />
+          <Route path="/member" element={<MemberLanding />} />
         </Route>
 
         {/* Protected Routes */}
