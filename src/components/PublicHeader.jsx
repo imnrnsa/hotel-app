@@ -13,7 +13,22 @@ export default function PublicHeader() {
     { name: "Member", path: "/#member" },
   ];
 
-  const isActive = (path) => location.pathname === path || location.hash === path.split("#")[1];
+  const scrollToHash = (path) => {
+    if (!path.includes("#")) return;
+    const id = path.split("#")[1];
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      window.history.replaceState(null, "", path);
+    }
+  };
+
+  const isActive = (path) => {
+    if (path.includes("#")) {
+      return location.hash === `#${path.split("#")[1]}`;
+    }
+    return location.pathname === path;
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#ead6b8] bg-white shadow-sm">
@@ -21,7 +36,6 @@ export default function PublicHeader() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[#b98d49] to-[#855f32] text-xl font-bold text-white">
-            H
           </div>
           <span className="text-2xl font-bold text-[#3f3527]">
             Hotel <span className="text-[#c99c5e]">Grand Zuri</span>
@@ -34,6 +48,12 @@ export default function PublicHeader() {
             <Link
               key={item.name}
               to={item.path}
+              onClick={(event) => {
+                if (item.path.includes("#")) {
+                  event.preventDefault();
+                  scrollToHash(item.path);
+                }
+              }}
               className={`text-sm font-semibold transition ${
                 isActive(item.path) ? "text-[#8d6b45]" : "text-[#5f5f5f] hover:text-[#8d6b45]"
               }`}
@@ -77,7 +97,13 @@ export default function PublicHeader() {
                 key={item.name}
                 to={item.path}
                 className="text-sm font-semibold text-[#5f5f5f] hover:text-[#8d6b45]"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(event) => {
+                  setMobileMenuOpen(false);
+                  if (item.path.includes("#")) {
+                    event.preventDefault();
+                    scrollToHash(item.path);
+                  }
+                }}
               >
                 {item.name}
               </Link>

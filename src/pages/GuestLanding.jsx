@@ -50,27 +50,6 @@ export default function GuestLanding() {
 
   return (
     <div className="min-h-screen scroll-smooth bg-[#fffdfa]">
-      {/* Header / Navbar */}
-      <header className="sticky top-0 z-50 border-b border-[#ead6b8]/50 bg-white/90 backdrop-blur-md px-4 py-4 shadow-sm">
-        <div className="mx-auto flex max-w-6xl items-center justify-between">
-          <div className="cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <h1 className="text-xl font-black tracking-wide text-[#1a1410]">GRAND ZURI</h1>
-          </div>
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#5f5f5f]">
-            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-[#8d6b45] transition">Beranda</button>
-            <button onClick={() => scrollToSection('fasilitas')} className="hover:text-[#8d6b45] transition">Fasilitas</button>
-            <button onClick={() => scrollToSection('kamar')} className="hover:text-[#8d6b45] transition">Pilihan Kamar</button>
-            <button onClick={() => scrollToSection('promo')} className="hover:text-[#8d6b45] transition">Promo</button>
-            <button onClick={() => scrollToSection('member')} className="hover:text-[#8d6b45] transition">Member</button>
-          </nav>
-          <div>
-            <Link to="/login" className="rounded-lg bg-[#8d6b45] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#7a5d39]">
-              Login
-            </Link>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#fff7ed] via-[#fef3e2] to-[#f8e8d0] px-4 py-16 md:py-24">
         <div className="mx-auto max-w-6xl">
@@ -136,10 +115,10 @@ export default function GuestLanding() {
       </section>
 
       {/* Room Types Section */}
-      <section id="kamar" className="bg-[#f8f1de] px-4 py-20 md:py-28">
+      <section id="menu" className="bg-[#f8f1de] px-4 py-20 md:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#8d6b45]">Pilihan Kamar</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#8d6b45]">Menu Kamar</p>
             <h2 className="mt-3 text-4xl font-black text-[#1a1410]">Kamar-Kamar Kami yang Elegan</h2>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -275,7 +254,7 @@ export default function GuestLanding() {
               <p className="font-bold text-[#1a1410]">Link Cepat</p>
               <div className="mt-2 flex flex-col gap-1 text-sm text-[#5f5f5f]">
                 <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-left hover:text-[#8d6b45] transition">Beranda</button>
-                <button onClick={() => scrollToSection('kamar')} className="text-left hover:text-[#8d6b45] transition">Pesan Kamar</button>
+                <button onClick={() => scrollToSection('menu')} className="text-left hover:text-[#8d6b45] transition">Pesan Kamar</button>
                 <button onClick={() => scrollToSection('member')} className="text-left hover:text-[#8d6b45] transition">Program Member</button>
               </div>
             </div>

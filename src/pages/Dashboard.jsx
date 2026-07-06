@@ -97,68 +97,106 @@ export default function Dashboard() {
             </div>
 
             <div className="mt-10 grid gap-8 lg:grid-cols-3">
-                <div className="lg:col-span-2 rounded-[2rem] border border-[#f3e4d0] bg-white p-8 shadow-[0_24px_70px_rgba(133,104,76,0.08)]">
+                <div className="rounded-[2rem] border border-[#f3e4d0] bg-white p-8 shadow-[0_24px_70px_rgba(133,104,76,0.08)]">
                     <div className="flex items-center justify-between mb-6">
                         <div>
-                            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#8c6b44]">Booking performance</p>
-                            <h2 className="mt-2 text-2xl font-semibold text-[#3d3528]">Weekly Booking Chart</h2>
+                            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#8c6b44]">Menu Populer</p>
+                            <h2 className="mt-2 text-2xl font-semibold text-[#3d3528]">Top 3 Pesanan</h2>
                         </div>
                         <div className="rounded-full bg-[#f5ecdc] px-4 py-2 text-sm font-semibold text-[#89693c]">
-                            Overview
+                            Popular
                         </div>
                     </div>
-                    <div className="grid grid-cols-7 gap-3">
+                    <div className="space-y-4">
                         {[
-                            { day: 'Mon', bookings: 45 },
-                            { day: 'Tue', bookings: 62 },
-                            { day: 'Wed', bookings: 55 },
-                            { day: 'Thu', bookings: 78 },
-                            { day: 'Fri', bookings: 89 },
-                            { day: 'Sat', bookings: 92 },
-                            { day: 'Sun', bookings: 68 }
-                        ].map((bar) => (
-                            <div key={bar.day} className="flex flex-col items-center gap-3">
-                                <div className="flex h-52 w-full items-end justify-center">
-                                    <div className="w-full rounded-t-3xl bg-gradient-to-t from-[#d8b68a] to-[#f7e3cc] shadow-md transition duration-300 hover:scale-[1.02]" style={{ height: `${(bar.bookings / 92) * 100}%` }}>
-                                        <div className="flex h-full items-center justify-center text-sm font-semibold text-white">
-                                            {bar.bookings}
-                                        </div>
+                            { rank: 1, name: 'Nasi Box Ayam', sold: 128 },
+                            { rank: 2, name: 'Paket Seafood', sold: 112 },
+                            { rank: 3, name: 'Paket Vegetarian', sold: 98 },
+                        ].map((item) => (
+                            <div key={item.rank} className="flex items-center justify-between rounded-[1.75rem] border border-[#f2e7d5] bg-[#fdf7ef] px-5 py-4 shadow-sm">
+                                <div className="flex items-center gap-4">
+                                    <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-[#f4e2d1] text-lg font-bold text-[#8b6231]">
+                                        {item.rank}
+                                    </div>
+                                    <div>
+                                        <p className="font-semibold text-[#3b3227]">{item.name}</p>
+                                        <p className="text-sm text-[#7d6c55]">{item.sold} terjual</p>
                                     </div>
                                 </div>
-                                <span className="text-sm font-medium text-[#75624a]">{bar.day}</span>
+                                <span className="text-sm font-semibold text-[#8b5a3d]">Rp {(item.sold * 25000).toLocaleString('id-ID')}</span>
                             </div>
                         ))}
-                    </div>
-                    <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-between text-sm text-[#7a6952]">
-                        <span>Total: 489 bookings</span>
-                        <span>Avg: 70 bookings/day</span>
                     </div>
                 </div>
 
-                <div className="rounded-[2rem] border border-[#f3e4d0] bg-white p-6 shadow-[0_24px_70px_rgba(133,104,76,0.08)]">
-                    <div className="mb-5">
-                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#8c6b44]">Rooms Update</p>
-                        <h2 className="mt-2 text-2xl font-semibold text-[#3d3528]">Recent Rooms</h2>
+                <div className="rounded-[2rem] border border-[#f3e4d0] bg-white p-8 shadow-[0_24px_70px_rgba(133,104,76,0.08)]">
+                    <div className="flex items-center justify-between mb-6">
+                        <div>
+                            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#8c6b44]">Top Pelanggan</p>
+                            <h2 className="mt-2 text-2xl font-semibold text-[#3d3528]">Loyal Customers</h2>
+                        </div>
+                        <div className="rounded-full bg-[#f5ecdc] px-4 py-2 text-sm font-semibold text-[#89693c]">
+                            Selalu Kembali
+                        </div>
                     </div>
-                    <div className="space-y-3 max-h-60 overflow-y-auto pr-1">
-                        {productsData.slice(0, 5).map((product) => (
-                            <div key={product.id} className="flex items-center justify-between gap-4 rounded-[1.5rem] border border-[#f2e7d5] bg-[#fdf7ef] px-4 py-4 shadow-sm transition hover:shadow-md">
-                                <div>
-                                    <p className="font-semibold text-[#3b3227]">{product.name}</p>
-                                    <p className="text-sm text-[#7d6c55]">{product.category}</p>
+                    <div className="space-y-4">
+                        {[
+                            { name: 'ahmad', amount: 525000 },
+                            { name: 'budi.santoso', amount: 425000 },
+                            { name: 'citra.dev', amount: 395000 },
+                        ].map((customer) => (
+                            <div key={customer.name} className="flex items-center justify-between gap-4 rounded-[1.75rem] border border-[#f2e7d5] bg-[#fdf7ef] px-5 py-4 shadow-sm">
+                                <div className="flex items-center gap-4">
+                                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#d7b488] text-sm font-bold uppercase text-white">
+                                        {customer.name.charAt(0)}
+                                    </div>
+                                    <div>
+                                        <p className="font-semibold text-[#3b3227]">{customer.name}</p>
+                                        <p className="text-sm text-[#7d6c55]">Pelanggan setia</p>
+                                    </div>
                                 </div>
-                                <div className="text-right">
-                                    <p className="font-semibold text-[#3b3227]">Rp {product.price.toLocaleString('id-ID')}</p>
-                                    <span className={`mt-2 inline-flex rounded-full px-3 py-1 text-xs font-semibold ${
-                                        product.status === 'Available'
-                                            ? 'bg-[#eef3df] text-[#66703f]'
-                                            : product.status === 'Low Stock'
-                                            ? 'bg-[#f6e2d0] text-[#8c5f40]'
-                                            : 'bg-[#f3d8c2] text-[#8a5a3d]'
-                                    }`}>{product.status}</span>
-                                </div>
+                                <p className="font-semibold text-[#8b5a3d]">Rp {customer.amount.toLocaleString('id-ID')}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+
+                <div className="rounded-[2rem] border border-[#f3e4d0] bg-white p-8 shadow-[0_24px_70px_rgba(133,104,76,0.08)]">
+                    <div className="flex items-center justify-between mb-6">
+                        <div>
+                            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#8c6b44]">Distribusi Pesanan</p>
+                            <h2 className="mt-2 text-2xl font-semibold text-[#3d3528]">Status Order</h2>
+                        </div>
+                        <div className="rounded-full bg-[#f5ecdc] px-4 py-2 text-sm font-semibold text-[#89693c]">
+                            7 Total
+                        </div>
+                    </div>
+                    <div className="flex flex-col items-center gap-6">
+                        <div className="relative flex h-64 w-64 items-center justify-center rounded-full bg-[#fdf7ef] shadow-inner">
+                            <div className="absolute inset-12 rounded-full bg-white" />
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#c99c5e] via-[#8b5a31] to-[#683f23]" style={{ clipPath: 'polygon(50% 0%, 84% 15%, 100% 50%, 84% 85%, 50% 100%, 16% 85%, 0% 50%, 16% 15%)' }} />
+                            <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg_at_50%_50%,_rgb(201,156,94)_0deg_35deg,_rgb(110,72,39)_35deg_65deg,_rgb(70,45,22)_65deg_85deg,_rgb(244,214,191)_85deg_360deg)]" />
+                            <div className="relative z-10 flex flex-col items-center justify-center text-center">
+                                <span className="text-5xl font-bold text-[#3d3528]">7</span>
+                                <span className="text-sm text-[#7d6c55]">Total</span>
+                            </div>
+                        </div>
+                        <div className="w-full space-y-3">
+                            {[
+                                { label: 'Diproses', value: '35%', color: '#c99c5e' },
+                                { label: 'Selesai', value: '30%', color: '#8b5a31' },
+                                { label: 'Dikirim', value: '20%', color: '#462b15' },
+                                { label: 'Menunggu', value: '15%', color: '#f4d7bf' },
+                            ].map((item) => (
+                                <div key={item.label} className="flex items-center justify-between gap-4 rounded-[1.5rem] border border-[#f2e7d5] bg-[#fdf7ef] px-4 py-3">
+                                    <div className="flex items-center gap-3">
+                                        <span className="inline-block h-3.5 w-3.5 rounded-full" style={{ backgroundColor: item.color }} />
+                                        <span className="font-medium text-[#3b3227]">{item.label}</span>
+                                    </div>
+                                    <span className="text-sm font-semibold text-[#8b5a3d]">{item.value}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
