@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { 
-  FaBed, FaStar, FaMapMarkerAlt, FaPhone, FaArrowRight, 
-  FaWifi, FaUtensils, FaSwimmingPool, FaUsers, FaArrowUp, FaCheckCircle 
-} from "react-icons/fa";
+import { FaBed, FaStar, FaMapMarkerAlt, FaPhone, FaArrowRight, FaWifi, FaUtensils, FaSwimmingPool, FaUsers, FaArrowUp, FaCheckCircle } from "react-icons/fa";
 
 const roomTypes = [
   {
@@ -140,7 +137,7 @@ export default function GuestLanding() {
       </section>
 
       {/* --- ROOM TYPES SECTION --- */}
-      <section id="kamar" className="bg-gradient-to-b from-[#F7F2E7] to-[#FDFCF9] px-4 py-24">
+      <section id="menu" className="bg-gradient-to-b from-[#F7F2E7] to-[#FDFCF9] px-4 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-16 text-center space-y-2">
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#8d6b45]">Katalog Kamar Eksklusif</p>
