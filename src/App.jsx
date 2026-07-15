@@ -23,8 +23,6 @@ function App() {
   const Products = React.lazy(() => import("./pages/Products"));
   const ProductDetail = React.lazy(() => import("./pages/ProductDetail"));
   const CustomerDetail = React.lazy(() => import("./pages/CustomerDetail"));
-  const ComponentPage = React.lazy(() => import("./pages/Component"));
-  const FiturXyz = React.lazy(() => import("./pages/FiturXyz"));
   const MemberLanding = React.lazy(() => import("./pages/MemberLanding"));
   const NotFound = React.lazy(() => import("./pages/NotFound"));
   const Login = React.lazy(() => import("./pages/auth/Login"));
@@ -56,10 +54,6 @@ function App() {
           <Route path="/products/:id" element={<ProductDetail />} />
 
           <Route path="/customers/:id" element={<CustomerDetail />} />
-
-          <Route path="/component" element={<ComponentPage />} />
-
-          <Route path="/fitur-xyz" element={<FiturXyz />} />
 
           <Route path="/error" element={<NotFound />} />
         </Route>

@@ -17,8 +17,6 @@ export default function Sidebar() {
     { name: "Bookings", icon: FaClipboardList, path: "/bookings" },
     { name: "Customers", icon: FaUsers, path: "/customers" },
     { name: "Rooms", icon: FaPlus, path: "/products" },
-    { name: "Fitur XYZ", icon: FaLayerGroup, path: "/fitur-xyz" },
-    { name: "Component", icon: FaCubes, path: "/component" },
   ];
 
   const handleLogout = () => {
